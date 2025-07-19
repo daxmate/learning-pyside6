@@ -1,4 +1,3 @@
-from IPython.testing.tools import help_output_test
 from PyQt6.QtWidgets import QApplication, QWidget
 import sys
 
