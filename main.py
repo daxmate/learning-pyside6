@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout,
 
 from helloworld import HelloWorld
 from layouts import Layouts
+from signal_and_slot import SignalAndSlot
 
 
 class MainWindow(QMainWindow):
@@ -16,6 +17,7 @@ class MainWindow(QMainWindow):
         self.centralWidget = QWidget()
         self.helloworld = None
         self.layouts = None
+        self.signal_and_slot = None
         self.init_ui()
 
     def init_ui(self):
@@ -34,10 +36,16 @@ class MainWindow(QMainWindow):
         helloworld_btn = QPushButton("第1课 Hello World")
         helloworld_btn.clicked.connect(self.open_helloworld)
         helloworld_btn.setObjectName("helloworld")
+
         layouts_btn = QPushButton("第2课 布局")
         layouts_btn.clicked.connect(self.open_layouts)
+
+        signal_and_slot_btn = QPushButton("第3课 信号与槽")
+        signal_and_slot_btn.clicked.connect(self.open_signal_and_slot)
+
         self.layout.addWidget(helloworld_btn)
         self.layout.addWidget(layouts_btn)
+        self.layout.addWidget(signal_and_slot_btn)
 
         self.set_button_text_alignment()
 
@@ -59,6 +67,12 @@ class MainWindow(QMainWindow):
         if self.layouts is None:
             self.layouts = Layouts(self)
         self.layouts.show()
+        self.hide()
+
+    def open_signal_and_slot(self):
+        if self.signal_and_slot is None:
+            self.signal_and_slot = SignalAndSlot(self)
+        self.signal_and_slot.show()
         self.hide()
 
 
