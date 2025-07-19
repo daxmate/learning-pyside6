@@ -8,59 +8,62 @@ class Layouts(QMainWindow):
         self.temp_widget = None
         self.mainwindow = mainwindow
         self.buttons = [QPushButton(text) for text in ["垂直布局", "水平布局", "栅格布局", "按钮1", "按钮2"]]
+        self.last_layout = None
+        self.init_ui()
+
+    def init_ui(self):
+        """初始化UI"""
+
+        # 设置窗口大小并移动窗口到屏幕中央
         self.resize(600, 300)
         self.setWindowTitle("Layouts各种窗口布局")
-        self.layouts()
-        self.center()
-
-    def center(self):
         screen_center = self.screen().availableGeometry().center()
-        frame_geometry = self.frameGeometry()
-        frame_geometry.moveCenter(screen_center)
+        self.geometry().moveCenter(screen_center)
 
-    def layouts(self):
-        vl = QVBoxLayout()
+        # 初始化为垂直布局，并将按钮添加到布局中
+        layout = QVBoxLayout()
         central_widget = QWidget()
-        central_widget.setLayout(vl)
-        self.buttons[0].clicked.connect(self.vertical_layout)
-        self.buttons[1].clicked.connect(self.horizontal_layout)
-        self.buttons[2].clicked.connect(self.grid_layout)
+        central_widget.setLayout(layout)
         for button in self.buttons:
-            vl.addWidget(button)
+            layout.addWidget(button)
         self.setCentralWidget(central_widget)
 
-    def vertical_layout(self):
-        self.remove_layout()
+        # 记录最后的布局
+        self.last_layout = layout
 
-        vl = QVBoxLayout()
-        for button in self.buttons:
-            vl.addWidget(button)
-        self.centralWidget().setLayout(vl)
+        # 链接点击信号到相应的切换布局函数
+        self.buttons[0].clicked.connect(lambda: self.switch_layout(QVBoxLayout()))
+        self.buttons[1].clicked.connect(lambda: self.switch_layout(QHBoxLayout()))
+        self.buttons[2].clicked.connect(lambda: self.switch_layout(QGridLayout()))
 
-    def horizontal_layout(self):
-        self.remove_layout()
+    def switch_layout(self, layout):
+        """切换UI布局"""
 
-        hl = QHBoxLayout()
-        for button in self.buttons:
-            hl.addWidget(button)
-        self.centralWidget().setLayout(hl)
+        # 如果布局与最后的布局一样则直接返回
+        if isinstance(layout, type(self.last_layout)):
+            return
 
-    def grid_layout(self):
-        self.remove_layout()
+        # 记录最后的布局为新的布局
+        self.last_layout = layout
 
-        gl = QGridLayout()
-        for index, button in enumerate(self.buttons):
-            gl.addWidget(button, index // 2, index % 2)
-        self.centralWidget().setLayout(gl)
+        # 将原来的布局存储为旧布局
+        old_layout = self.centralWidget().layout()
 
-    def remove_layout(self):
-        central_widget = self.centralWidget()
-        old_layout = central_widget.layout()
-
+        # 新建一个临时窗体控件，并将旧布局链接到临时控件上，同时将新布局设置到中央控件上
         self.temp_widget = QWidget()
-        self.temp_widget.setLayout(old_layout)
+        if old_layout:
+            self.temp_widget.setLayout(old_layout)
+        self.centralWidget().setLayout(layout)
+        # 从旧布局上移动按钮到新布局上
+        if not isinstance(layout, QGridLayout):
+            for button in self.buttons:
+                layout.addWidget(button)
+        else:
+            for index, button in enumerate(self.buttons):
+                layout.addWidget(button, index // 2, index % 2)
 
     def closeEvent(self, event):
+        """关闭本窗口时显示主窗口"""
         if self.mainwindow and not self.mainwindow.isVisible():
             self.mainwindow.show()
         event.accept()
