@@ -1,7 +1,7 @@
 import sys
 
-from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QHBoxLayout
-from PyQt6.QtCore import pyqtSlot, pyqtSignal
+from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QHBoxLayout
+from PySide6.QtCore import Slot, Signal
 
 
 class SignalAndSlot(QWidget):
@@ -27,7 +27,7 @@ class SignalAndSlot(QWidget):
         # 链接信号与槽
         self.button.clicked.connect(self.update_label)
 
-    @pyqtSlot()
+    @Slot()
     def update_label(self):
         self.label.setText("文本已更新")
 
