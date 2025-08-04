@@ -2,10 +2,9 @@ import json
 import os.path
 import sys
 
-import PySide6.QtGui
 from PySide6.QtWidgets import QStyle
 
-from todo import *
+from resources.forms.todo import *
 from PySide6.QtCore import QAbstractListModel, Qt, QEvent
 
 

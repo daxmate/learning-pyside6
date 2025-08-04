@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'widget_gallery_ui.ui'
+## Form generated from reading UI file 'widget_gallery.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.1
 ##

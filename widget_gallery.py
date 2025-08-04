@@ -1,7 +1,6 @@
-from PySide6.QtWidgets import QWidget, QToolButton
+from PySide6.QtWidgets import QWidget
 
-from widget_gallery_ui import Ui_Form
-from PySide6.QtGui import QAction
+from resources.forms.widget_gallery import Ui_Form
 from PySide6.QtWidgets import QMenu
 
 
