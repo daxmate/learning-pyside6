@@ -6,7 +6,7 @@ import PySide6.QtGui
 from PySide6.QtWidgets import QStyle
 
 from todo import *
-from PySide6.QtCore import QAbstractListModel, Qt
+from PySide6.QtCore import QAbstractListModel, Qt, QEvent
 
 
 class TodoModel(QAbstractListModel):
@@ -37,7 +37,7 @@ class TodoModel(QAbstractListModel):
 
 
 class Todo(QWidget, Ui_Form):
-    def __init__(self, mainwindow):
+    def __init__(self, mainwindow=None):
         super().__init__()
         self.setupUi(self)
         self.model = TodoModel()
@@ -50,6 +50,9 @@ class Todo(QWidget, Ui_Form):
         self.delete_btn.clicked.connect(self.delete)
         self.complete_btn.clicked.connect(self.complete)
 
+        self.list_view.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
+        self.list_view.installEventFilter(self)
+
     def add(self):
         if self.line_edit.text():
             self.model.todo_list.append((False, self.line_edit.text()))
@@ -58,8 +61,19 @@ class Todo(QWidget, Ui_Form):
             self.save()
 
     def keyPressEvent(self, event, /):
-        if event.key() == Qt.Key.Key_Enter or event.key() == Qt.Key.Key_Return:
-            self.add()
+        if self.line_edit.hasFocus():
+            if event.key() == Qt.Key.Key_Enter or event.key() == Qt.Key.Key_Return:
+                self.add()
+
+    def eventFilter(self, obj, event):
+        if obj == self.list_view and event.type() == QEvent.Type.KeyPress and event.key() == Qt.Key.Key_Q:
+            if self.mainwindow:
+                self.hide()
+                self.mainwindow.show()
+            else:
+                self.close()
+            return True
+        return False
 
     def delete(self):
         if self.list_view.selectedIndexes() and self.model.todo_list:
