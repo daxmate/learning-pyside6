@@ -1,0 +1,177 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'widget_gallery_ui.ui'
+##
+## Created by: Qt User Interface Compiler version 6.9.1
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QButtonGroup, QCheckBox,
+    QCommandLinkButton, QDialogButtonBox, QGroupBox, QHBoxLayout,
+    QPushButton, QRadioButton, QSizePolicy, QSpacerItem,
+    QToolButton, QVBoxLayout, QWidget)
+import qlementine_icons_16_navigation_rc
+
+class Ui_Form(object):
+    def setupUi(self, Form):
+        if not Form.objectName():
+            Form.setObjectName(u"Form")
+        Form.resize(391, 372)
+        self.buttons_gb = QGroupBox(Form)
+        self.buttons_gb.setObjectName(u"buttons_gb")
+        self.buttons_gb.setGeometry(QRect(10, 20, 305, 277))
+        self.horizontalLayout_2 = QHBoxLayout(self.buttons_gb)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.pushButton = QPushButton(self.buttons_gb)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.verticalLayout_2.addWidget(self.pushButton)
+
+        self.pushButton_2 = QPushButton(self.buttons_gb)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setCheckable(True)
+
+        self.verticalLayout_2.addWidget(self.pushButton_2)
+
+        self.pushButton_3 = QPushButton(self.buttons_gb)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setFlat(True)
+
+        self.verticalLayout_2.addWidget(self.pushButton_3, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.toolButton = QToolButton(self.buttons_gb)
+        self.toolButton.setObjectName(u"toolButton")
+        icon = QIcon()
+        icon.addFile(u":/navigation/settings.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton.setIcon(icon)
+
+        self.horizontalLayout.addWidget(self.toolButton)
+
+        self.option_tool_button = QToolButton(self.buttons_gb)
+        self.option_tool_button.setObjectName(u"option_tool_button")
+        icon1 = QIcon()
+        icon1.addFile(u":/navigation/menu-burger.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.option_tool_button.setIcon(icon1)
+        self.option_tool_button.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
+
+        self.horizontalLayout.addWidget(self.option_tool_button)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+
+        self.commandLinkButton = QCommandLinkButton(self.buttons_gb)
+        self.commandLinkButton.setObjectName(u"commandLinkButton")
+        icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.BatteryLow))
+        self.commandLinkButton.setIcon(icon2)
+
+        self.verticalLayout_2.addWidget(self.commandLinkButton)
+
+        self.buttonBox = QDialogButtonBox(self.buttons_gb)
+        self.buttonBox.setObjectName(u"buttonBox")
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
+
+        self.verticalLayout_2.addWidget(self.buttonBox, 0, Qt.AlignmentFlag.AlignHCenter)
+
+
+        self.horizontalLayout_2.addLayout(self.verticalLayout_2)
+
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.radioButton_2 = QRadioButton(self.buttons_gb)
+        self.buttonGroup = QButtonGroup(Form)
+        self.buttonGroup.setObjectName(u"buttonGroup")
+        self.buttonGroup.addButton(self.radioButton_2)
+        self.radioButton_2.setObjectName(u"radioButton_2")
+
+        self.verticalLayout.addWidget(self.radioButton_2)
+
+        self.radioButton = QRadioButton(self.buttons_gb)
+        self.buttonGroup.addButton(self.radioButton)
+        self.radioButton.setObjectName(u"radioButton")
+
+        self.verticalLayout.addWidget(self.radioButton)
+
+        self.radioButton_3 = QRadioButton(self.buttons_gb)
+        self.buttonGroup.addButton(self.radioButton_3)
+        self.radioButton_3.setObjectName(u"radioButton_3")
+
+        self.verticalLayout.addWidget(self.radioButton_3)
+
+        self.checkBox_4 = QCheckBox(self.buttons_gb)
+        self.checkBox_4.setObjectName(u"checkBox_4")
+        self.checkBox_4.setTristate(True)
+
+        self.verticalLayout.addWidget(self.checkBox_4)
+
+        self.checkBox = QCheckBox(self.buttons_gb)
+        self.buttonGroup_2 = QButtonGroup(Form)
+        self.buttonGroup_2.setObjectName(u"buttonGroup_2")
+        self.buttonGroup_2.setExclusive(False)
+        self.buttonGroup_2.addButton(self.checkBox)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setTristate(False)
+
+        self.verticalLayout.addWidget(self.checkBox)
+
+        self.checkBox_2 = QCheckBox(self.buttons_gb)
+        self.buttonGroup_2.addButton(self.checkBox_2)
+        self.checkBox_2.setObjectName(u"checkBox_2")
+        self.checkBox_2.setTristate(False)
+
+        self.verticalLayout.addWidget(self.checkBox_2)
+
+        self.checkBox_3 = QCheckBox(self.buttons_gb)
+        self.buttonGroup_2.addButton(self.checkBox_3)
+        self.checkBox_3.setObjectName(u"checkBox_3")
+        self.checkBox_3.setTristate(False)
+
+        self.verticalLayout.addWidget(self.checkBox_3)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+
+        self.horizontalLayout_2.addLayout(self.verticalLayout)
+
+
+        self.retranslateUi(Form)
+
+        self.pushButton.setDefault(True)
+
+
+        QMetaObject.connectSlotsByName(Form)
+    # setupUi
+
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"\u5e38\u7528\u63a7\u4ef6", None))
+        self.buttons_gb.setTitle(QCoreApplication.translate("Form", u"\u6309\u94ae", None))
+        self.pushButton.setText(QCoreApplication.translate("Form", u"\u9ed8\u8ba4\u6309\u94ae", None))
+        self.pushButton_2.setText(QCoreApplication.translate("Form", u"\u5207\u6362\u6309\u94ae", None))
+        self.pushButton_3.setText(QCoreApplication.translate("Form", u"\u5e73\u9762\u6309\u94ae", None))
+        self.toolButton.setText(QCoreApplication.translate("Form", u"\u5de5\u5177\u6309\u94ae", None))
+        self.option_tool_button.setText(QCoreApplication.translate("Form", u"\u83dc\u5355\u6309\u94ae", None))
+        self.commandLinkButton.setText(QCoreApplication.translate("Form", u"\u5173\u673a", None))
+        self.commandLinkButton.setDescription(QCoreApplication.translate("Form", u"\u7535\u91cf\u4f4e\uff0c\u70b9\u51fb\u5173\u673a\uff01", None))
+        self.radioButton_2.setText(QCoreApplication.translate("Form", u"\u5355\u9009\u6309\u94ae1", None))
+        self.radioButton.setText(QCoreApplication.translate("Form", u"\u5355\u9009\u6309\u94ae2", None))
+        self.radioButton_3.setText(QCoreApplication.translate("Form", u"\u5355\u9009\u6309\u94ae3", None))
+        self.checkBox_4.setText(QCoreApplication.translate("Form", u"\u4e09\u6001\u9009\u62e9\u6846", None))
+        self.checkBox.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68461", None))
+        self.checkBox_2.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68462", None))
+        self.checkBox_3.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68463", None))
+    # retranslateUi
+
