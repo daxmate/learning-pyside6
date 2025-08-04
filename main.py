@@ -8,6 +8,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayou
 from helloworld import HelloWorld
 from layouts import Layouts
 from signal_and_slot import SignalAndSlot
+from todoapp import Todo
 
 
 class MainWindow(QMainWindow):
@@ -18,6 +19,7 @@ class MainWindow(QMainWindow):
         self.helloworld = None
         self.layouts = None
         self.signal_and_slot = None
+        self.todoapp = None
         self.init_ui()
 
     def init_ui(self):
@@ -43,9 +45,13 @@ class MainWindow(QMainWindow):
         signal_and_slot_btn = QPushButton("第3课 信号与槽")
         signal_and_slot_btn.clicked.connect(self.open_signal_and_slot)
 
+        todo_btn = QPushButton("第4课 Todo App")
+        todo_btn.clicked.connect(self.open_todoapp)
+
         self.layout.addWidget(helloworld_btn)
         self.layout.addWidget(layouts_btn)
         self.layout.addWidget(signal_and_slot_btn)
+        self.layout.addWidget(todo_btn)
 
         self.set_button_text_alignment()
 
@@ -73,6 +79,12 @@ class MainWindow(QMainWindow):
         if self.signal_and_slot is None:
             self.signal_and_slot = SignalAndSlot(self)
         self.signal_and_slot.show()
+        self.hide()
+
+    def open_todoapp(self):
+        if self.todoapp is None:
+            self.todoapp = Todo(self)
+        self.todoapp.show()
         self.hide()
 
 
