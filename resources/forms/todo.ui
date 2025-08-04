@@ -47,6 +47,10 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../icons/qlementine_icons_16_action.qrc"/>
+  <include location="../icons/qlementine_icons_16_text.qrc"/>
+  <include location="../icons/qlementine_icons_16_shape.qrc"/>
+ </resources>
  <connections/>
 </ui>

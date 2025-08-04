@@ -28,9 +28,9 @@ class TodoModel(QAbstractListModel):
             status, text = self.todo_list[index.row()]
             style = QApplication.style()
             if status:
-                return style.standardIcon(QStyle.StandardPixmap.SP_DialogApplyButton)
+                return QIcon(QPixmap("resources/icons/shape/check-tick.svg"))
             else:
-                return style.standardIcon(QStyle.StandardPixmap.SP_DialogCancelButton)
+                return QIcon(QPixmap("resources/icons/action/close.svg"))
 
         return None
 
