@@ -1,15 +1,9 @@
 import sys
-import os
 
-from PySide6.QtCore import Qt, QAbstractListModel, QModelIndex
-from PySide6.QtGui import QIcon
+from PySide6.QtCore import Qt, QAbstractListModel
 from PySide6.QtWidgets import (QApplication,
                                QMainWindow,
-                               QPushButton,
-                               QVBoxLayout,
-                               QWidget,
-                               QSpacerItem,
-                               QSizePolicy)
+                               )
 
 from helloworld import HelloWorld
 from layouts import Layouts
