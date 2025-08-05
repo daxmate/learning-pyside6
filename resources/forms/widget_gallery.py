@@ -20,6 +20,21 @@ from PySide6.QtWidgets import (QAbstractButton, QApplication, QButtonGroup, QChe
     QPushButton, QRadioButton, QSizePolicy, QSpacerItem,
     QToolButton, QVBoxLayout, QWidget)
 import qlementine_icons_16_navigation_rc
+import qlementine_icons_16_shopping_rc
+import qlementine_icons_16_software_rc
+import qlementine_icons_16_text_rc
+import qlementine_icons_16_action_rc
+import qlementine_icons_16_audio_rc
+import qlementine_icons_16_brand_rc
+import qlementine_icons_16_document_rc
+import qlementine_icons_16_file_rc
+import qlementine_icons_16_food_rc
+import qlementine_icons_16_hardware_rc
+import qlementine_icons_16_instrument_rc
+import qlementine_icons_16_media_rc
+import qlementine_icons_16_misc_rc
+import qlementine_icons_16_page_rc
+import qlementine_icons_16_shape_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -35,17 +50,26 @@ class Ui_Form(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.pushButton = QPushButton(self.buttons_gb)
         self.pushButton.setObjectName(u"pushButton")
+        icon = QIcon()
+        icon.addFile(u":/software/character-map.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pushButton.setIcon(icon)
 
         self.verticalLayout_2.addWidget(self.pushButton)
 
         self.pushButton_2 = QPushButton(self.buttons_gb)
         self.pushButton_2.setObjectName(u"pushButton_2")
+        icon1 = QIcon()
+        icon1.addFile(u":/action/on-off.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pushButton_2.setIcon(icon1)
         self.pushButton_2.setCheckable(True)
 
         self.verticalLayout_2.addWidget(self.pushButton_2)
 
         self.pushButton_3 = QPushButton(self.buttons_gb)
         self.pushButton_3.setObjectName(u"pushButton_3")
+        icon2 = QIcon()
+        icon2.addFile(u":/action/flatten.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pushButton_3.setIcon(icon2)
         self.pushButton_3.setFlat(True)
 
         self.verticalLayout_2.addWidget(self.pushButton_3, 0, Qt.AlignmentFlag.AlignHCenter)
@@ -54,17 +78,17 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.toolButton = QToolButton(self.buttons_gb)
         self.toolButton.setObjectName(u"toolButton")
-        icon = QIcon()
-        icon.addFile(u":/navigation/settings.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton.setIcon(icon)
+        icon3 = QIcon()
+        icon3.addFile(u":/navigation/settings.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton.setIcon(icon3)
 
         self.horizontalLayout.addWidget(self.toolButton)
 
         self.option_tool_button = QToolButton(self.buttons_gb)
         self.option_tool_button.setObjectName(u"option_tool_button")
-        icon1 = QIcon()
-        icon1.addFile(u":/navigation/menu-burger.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.option_tool_button.setIcon(icon1)
+        icon4 = QIcon()
+        icon4.addFile(u":/navigation/menu-burger.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.option_tool_button.setIcon(icon4)
         self.option_tool_button.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
 
         self.horizontalLayout.addWidget(self.option_tool_button)
@@ -74,8 +98,8 @@ class Ui_Form(object):
 
         self.commandLinkButton = QCommandLinkButton(self.buttons_gb)
         self.commandLinkButton.setObjectName(u"commandLinkButton")
-        icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.BatteryLow))
-        self.commandLinkButton.setIcon(icon2)
+        icon5 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.BatteryLow))
+        self.commandLinkButton.setIcon(icon5)
 
         self.verticalLayout_2.addWidget(self.commandLinkButton)
 

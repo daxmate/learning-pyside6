@@ -33,6 +33,10 @@
         <property name="text">
          <string>默认按钮</string>
         </property>
+        <property name="icon">
+         <iconset resource="../icons/qlementine_icons_16_software.qrc">
+          <normaloff>:/software/character-map.svg</normaloff>:/software/character-map.svg</iconset>
+        </property>
         <property name="default">
          <bool>true</bool>
         </property>
@@ -43,6 +47,10 @@
         <property name="text">
          <string>切换按钮</string>
         </property>
+        <property name="icon">
+         <iconset resource="../icons/qlementine_icons_16_action.qrc">
+          <normaloff>:/action/on-off.svg</normaloff>:/action/on-off.svg</iconset>
+        </property>
         <property name="checkable">
          <bool>true</bool>
         </property>
@@ -52,6 +60,10 @@
        <widget class="QPushButton" name="pushButton_3">
         <property name="text">
          <string>平面按钮</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/qlementine_icons_16_action.qrc">
+          <normaloff>:/action/flatten.svg</normaloff>:/action/flatten.svg</iconset>
         </property>
         <property name="flat">
          <bool>true</bool>
@@ -66,7 +78,7 @@
            <string>工具按钮</string>
           </property>
           <property name="icon">
-           <iconset resource="resources/icons/qlementine_icons_16_navigation.qrc">
+           <iconset resource="../icons/qlementine_icons_16_navigation.qrc">
             <normaloff>:/navigation/settings.svg</normaloff>:/navigation/settings.svg</iconset>
           </property>
          </widget>
@@ -77,7 +89,7 @@
            <string>菜单按钮</string>
           </property>
           <property name="icon">
-           <iconset resource="resources/icons/qlementine_icons_16_navigation.qrc">
+           <iconset resource="../icons/qlementine_icons_16_navigation.qrc">
             <normaloff>:/navigation/menu-burger.svg</normaloff>:/navigation/menu-burger.svg</iconset>
           </property>
           <property name="popupMode">
@@ -209,15 +221,30 @@
   </widget>
  </widget>
  <resources>
-  <include location="resources/icons/qlementine_icons_16_navigation.qrc"/>
+  <include location="../icons/qlementine_icons_16_navigation.qrc"/>
+  <include location="../icons/qlementine_icons_16_shopping.qrc"/>
+  <include location="../icons/qlementine_icons_16_software.qrc"/>
+  <include location="../icons/qlementine_icons_16_text.qrc"/>
+  <include location="../icons/qlementine_icons_16_action.qrc"/>
+  <include location="../icons/qlementine_icons_16_audio.qrc"/>
+  <include location="../icons/qlementine_icons_16_brand.qrc"/>
+  <include location="../icons/qlementine_icons_16_document.qrc"/>
+  <include location="../icons/qlementine_icons_16_file.qrc"/>
+  <include location="../icons/qlementine_icons_16_food.qrc"/>
+  <include location="../icons/qlementine_icons_16_hardware.qrc"/>
+  <include location="../icons/qlementine_icons_16_instrument.qrc"/>
+  <include location="../icons/qlementine_icons_16_media.qrc"/>
+  <include location="../icons/qlementine_icons_16_misc.qrc"/>
+  <include location="../icons/qlementine_icons_16_page.qrc"/>
+  <include location="../icons/qlementine_icons_16_shape.qrc"/>
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_2">
    <property name="exclusive">
     <bool>false</bool>
    </property>
   </buttongroup>
+  <buttongroup name="buttonGroup"/>
  </buttongroups>
 </ui>
