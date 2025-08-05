@@ -16,9 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QButtonGroup, QCheckBox,
-    QCommandLinkButton, QDialogButtonBox, QGroupBox, QHBoxLayout,
-    QPushButton, QRadioButton, QSizePolicy, QSpacerItem,
-    QToolButton, QVBoxLayout, QWidget)
+    QComboBox, QCommandLinkButton, QDialogButtonBox, QGroupBox,
+    QHBoxLayout, QLabel, QPushButton, QRadioButton,
+    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
+    QWidget)
 import qlementine_icons_16_navigation_rc
 import qlementine_icons_16_shopping_rc
 import qlementine_icons_16_software_rc
@@ -43,7 +44,7 @@ class Ui_Form(object):
         Form.resize(391, 372)
         self.buttons_gb = QGroupBox(Form)
         self.buttons_gb.setObjectName(u"buttons_gb")
-        self.buttons_gb.setGeometry(QRect(10, 20, 305, 277))
+        self.buttons_gb.setGeometry(QRect(10, 40, 305, 277))
         self.horizontalLayout_2 = QHBoxLayout(self.buttons_gb)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.verticalLayout_2 = QVBoxLayout()
@@ -171,6 +172,22 @@ class Ui_Form(object):
 
         self.horizontalLayout_2.addLayout(self.verticalLayout)
 
+        self.widget = QWidget(Form)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(10, 10, 135, 32))
+        self.horizontalLayout_3 = QHBoxLayout(self.widget)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.style_label = QLabel(self.widget)
+        self.style_label.setObjectName(u"style_label")
+
+        self.horizontalLayout_3.addWidget(self.style_label)
+
+        self.style_comb = QComboBox(self.widget)
+        self.style_comb.setObjectName(u"style_comb")
+
+        self.horizontalLayout_3.addWidget(self.style_comb)
+
 
         self.retranslateUi(Form)
 
@@ -197,5 +214,6 @@ class Ui_Form(object):
         self.checkBox.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68461", None))
         self.checkBox_2.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68462", None))
         self.checkBox_3.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68463", None))
+        self.style_label.setText(QCoreApplication.translate("Form", u"\u6837\u5f0f", None))
     # retranslateUi
 

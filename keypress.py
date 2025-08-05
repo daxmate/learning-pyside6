@@ -28,7 +28,7 @@ class KeypressWindow(QWidget):
         if event.key() == Qt.Key.Key_Q:
             self.close()
 
-    def eventFilter(self, watched, event, /):
+    def eventFilter(self, watched, event: QEvent | QKeyEvent, /):
         if watched == self.list_view and event.type() == QEvent.Type.KeyPress:
             if event.key() == Qt.Key.Key_Q:
                 self.close()
