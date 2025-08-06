@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QStyleFactory
+from PySide6.QtCore import QDir
+from PySide6.QtWidgets import QStyleFactory, QTabWidget, QFileSystemModel
 from PySide6.QtWidgets import QWidget, QApplication
 
 from resources.forms.widget_gallery import Ui_Form
@@ -18,6 +19,7 @@ class WidgetGallery(QWidget, Ui_Form):
         self.option_tool_button.setMenu(tool_menu)
 
         self.add_style()
+        self.setup_tab_widget()
 
     def add_style(self):
         """
@@ -40,6 +42,12 @@ class WidgetGallery(QWidget, Ui_Form):
     def switch_style(self):
         current_style = self.style_comb.currentText()
         QApplication.setStyle(current_style)
+
+    def setup_tab_widget(self):
+        filesystem_model = QFileSystemModel()
+        filesystem_model.setRootPath(QDir.rootPath())
+
+        self.treeView.setModel(filesystem_model)
 
     def closeEvent(self, event):
         if self.mainwindow is not None and self.isVisible():

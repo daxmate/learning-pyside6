@@ -16,10 +16,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QButtonGroup, QCheckBox,
-    QComboBox, QCommandLinkButton, QDialogButtonBox, QGroupBox,
-    QHBoxLayout, QLabel, QPushButton, QRadioButton,
-    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
-    QWidget)
+    QComboBox, QCommandLinkButton, QDateTimeEdit, QDial,
+    QDialogButtonBox, QFontComboBox, QGridLayout, QGroupBox,
+    QHBoxLayout, QHeaderView, QKeySequenceEdit, QLabel,
+    QLineEdit, QListView, QPushButton, QRadioButton,
+    QScrollBar, QSizePolicy, QSlider, QSpacerItem,
+    QSpinBox, QTabWidget, QToolButton, QTreeView,
+    QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 import qlementine_icons_16_navigation_rc
 import qlementine_icons_16_shopping_rc
 import qlementine_icons_16_software_rc
@@ -41,10 +44,72 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(391, 372)
+        Form.resize(606, 635)
+        self.layoutWidget = QWidget(Form)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(10, 10, 135, 32))
+        self.horizontalLayout_3 = QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.style_label = QLabel(self.layoutWidget)
+        self.style_label.setObjectName(u"style_label")
+
+        self.horizontalLayout_3.addWidget(self.style_label)
+
+        self.style_comb = QComboBox(self.layoutWidget)
+        self.style_comb.setObjectName(u"style_comb")
+
+        self.horizontalLayout_3.addWidget(self.style_comb)
+
+        self.tab_widget = QTabWidget(Form)
+        self.tab_widget.setObjectName(u"tab_widget")
+        self.tab_widget.setGeometry(QRect(10, 340, 302, 255))
+        self.tab = QWidget()
+        self.tab.setObjectName(u"tab")
+        self.horizontalLayout_5 = QHBoxLayout(self.tab)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.treeView = QTreeView(self.tab)
+        self.treeView.setObjectName(u"treeView")
+
+        self.horizontalLayout_5.addWidget(self.treeView)
+
+        self.tab_widget.addTab(self.tab, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.horizontalLayout_6 = QHBoxLayout(self.tab_2)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.treeWidget = QTreeWidget(self.tab_2)
+        __qtreewidgetitem = QTreeWidgetItem()
+        __qtreewidgetitem.setText(0, u"1");
+        self.treeWidget.setHeaderItem(__qtreewidgetitem)
+        self.treeWidget.setObjectName(u"treeWidget")
+
+        self.horizontalLayout_6.addWidget(self.treeWidget)
+
+        self.tab_widget.addTab(self.tab_2, "")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.horizontalLayout_4 = QHBoxLayout(self.tab_3)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.listView = QListView(self.tab_3)
+        self.listView.setObjectName(u"listView")
+
+        self.horizontalLayout_4.addWidget(self.listView)
+
+        self.tab_widget.addTab(self.tab_3, "")
+        self.tab_4 = QWidget()
+        self.tab_4.setObjectName(u"tab_4")
+        self.horizontalLayout_7 = QHBoxLayout(self.tab_4)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.listView_2 = QListView(self.tab_4)
+        self.listView_2.setObjectName(u"listView_2")
+
+        self.horizontalLayout_7.addWidget(self.listView_2)
+
+        self.tab_widget.addTab(self.tab_4, "")
         self.buttons_gb = QGroupBox(Form)
         self.buttons_gb.setObjectName(u"buttons_gb")
-        self.buttons_gb.setGeometry(QRect(10, 40, 305, 277))
+        self.buttons_gb.setGeometry(QRect(11, 40, 272, 281))
         self.horizontalLayout_2 = QHBoxLayout(self.buttons_gb)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.verticalLayout_2 = QVBoxLayout()
@@ -172,25 +237,79 @@ class Ui_Form(object):
 
         self.horizontalLayout_2.addLayout(self.verticalLayout)
 
-        self.widget = QWidget(Form)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 10, 135, 32))
-        self.horizontalLayout_3 = QHBoxLayout(self.widget)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.style_label = QLabel(self.widget)
-        self.style_label.setObjectName(u"style_label")
+        self.input_gb = QGroupBox(Form)
+        self.input_gb.setObjectName(u"input_gb")
+        self.input_gb.setGeometry(QRect(299, 47, 271, 274))
+        self.input_gb.setCheckable(True)
+        self.gridLayout = QGridLayout(self.input_gb)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.lineEdit = QLineEdit(self.input_gb)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setEchoMode(QLineEdit.EchoMode.Password)
 
-        self.horizontalLayout_3.addWidget(self.style_label)
+        self.gridLayout.addWidget(self.lineEdit, 0, 0, 1, 1)
 
-        self.style_comb = QComboBox(self.widget)
-        self.style_comb.setObjectName(u"style_comb")
+        self.verticalScrollBar = QScrollBar(self.input_gb)
+        self.verticalScrollBar.setObjectName(u"verticalScrollBar")
+        self.verticalScrollBar.setValue(50)
+        self.verticalScrollBar.setOrientation(Qt.Orientation.Vertical)
 
-        self.horizontalLayout_3.addWidget(self.style_comb)
+        self.gridLayout.addWidget(self.verticalScrollBar, 0, 1, 3, 1)
+
+        self.verticalSlider = QSlider(self.input_gb)
+        self.verticalSlider.setObjectName(u"verticalSlider")
+        self.verticalSlider.setValue(50)
+        self.verticalSlider.setOrientation(Qt.Orientation.Vertical)
+
+        self.gridLayout.addWidget(self.verticalSlider, 0, 2, 3, 1)
+
+        self.spinBox = QSpinBox(self.input_gb)
+        self.spinBox.setObjectName(u"spinBox")
+        self.spinBox.setValue(50)
+
+        self.gridLayout.addWidget(self.spinBox, 1, 0, 1, 1)
+
+        self.dateTimeEdit = QDateTimeEdit(self.input_gb)
+        self.dateTimeEdit.setObjectName(u"dateTimeEdit")
+        self.dateTimeEdit.setDate(QDate(2025, 8, 6))
+        self.dateTimeEdit.setTime(QTime(12, 0, 0))
+
+        self.gridLayout.addWidget(self.dateTimeEdit, 2, 0, 1, 1)
+
+        self.horizontalScrollBar = QScrollBar(self.input_gb)
+        self.horizontalScrollBar.setObjectName(u"horizontalScrollBar")
+        self.horizontalScrollBar.setValue(50)
+        self.horizontalScrollBar.setOrientation(Qt.Orientation.Horizontal)
+
+        self.gridLayout.addWidget(self.horizontalScrollBar, 3, 0, 1, 1)
+
+        self.keySequenceEdit = QKeySequenceEdit(self.input_gb)
+        self.keySequenceEdit.setObjectName(u"keySequenceEdit")
+
+        self.gridLayout.addWidget(self.keySequenceEdit, 3, 1, 1, 2)
+
+        self.horizontalSlider = QSlider(self.input_gb)
+        self.horizontalSlider.setObjectName(u"horizontalSlider")
+        self.horizontalSlider.setValue(50)
+        self.horizontalSlider.setOrientation(Qt.Orientation.Horizontal)
+
+        self.gridLayout.addWidget(self.horizontalSlider, 4, 0, 1, 1)
+
+        self.dial = QDial(self.input_gb)
+        self.dial.setObjectName(u"dial")
+        self.dial.setValue(50)
+
+        self.gridLayout.addWidget(self.dial, 4, 1, 2, 1)
+
+        self.fontComboBox = QFontComboBox(self.input_gb)
+        self.fontComboBox.setObjectName(u"fontComboBox")
+
+        self.gridLayout.addWidget(self.fontComboBox, 5, 0, 1, 1)
 
 
         self.retranslateUi(Form)
 
+        self.tab_widget.setCurrentIndex(0)
         self.pushButton.setDefault(True)
 
 
@@ -199,6 +318,11 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"\u5e38\u7528\u63a7\u4ef6", None))
+        self.style_label.setText(QCoreApplication.translate("Form", u"\u6837\u5f0f", None))
+        self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab), QCoreApplication.translate("Form", u"Tree View", None))
+        self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab_2), QCoreApplication.translate("Form", u"Table", None))
+        self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab_3), QCoreApplication.translate("Form", u"List", None))
+        self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab_4), QCoreApplication.translate("Form", u"Icon Mode List", None))
         self.buttons_gb.setTitle(QCoreApplication.translate("Form", u"\u6309\u94ae", None))
         self.pushButton.setText(QCoreApplication.translate("Form", u"\u9ed8\u8ba4\u6309\u94ae", None))
         self.pushButton_2.setText(QCoreApplication.translate("Form", u"\u5207\u6362\u6309\u94ae", None))
@@ -214,6 +338,6 @@ class Ui_Form(object):
         self.checkBox.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68461", None))
         self.checkBox_2.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68462", None))
         self.checkBox_3.setText(QCoreApplication.translate("Form", u"\u591a\u9009\u68463", None))
-        self.style_label.setText(QCoreApplication.translate("Form", u"\u6837\u5f0f", None))
+        self.input_gb.setTitle(QCoreApplication.translate("Form", u"\u7b80\u5355\u8f93\u5165\u63a7\u4ef6", None))
     # retranslateUi
 
