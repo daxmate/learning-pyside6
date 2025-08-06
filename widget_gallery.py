@@ -4,12 +4,12 @@ from PySide6.QtWidgets import QWidget, QApplication
 
 from resources.forms.widget_gallery import Ui_Form
 from PySide6.QtWidgets import QMenu
+from dax import DWidget
 
 
-class WidgetGallery(QWidget, Ui_Form):
+class WidgetGallery(DWidget, Ui_Form):
     def __init__(self, mainwindow=None):
-        super().__init__()
-        self.mainwindow = mainwindow
+        super().__init__(mainwindow)
         self.setupUi(self)
 
         tool_menu = QMenu(self.option_tool_button)
@@ -48,8 +48,3 @@ class WidgetGallery(QWidget, Ui_Form):
         filesystem_model.setRootPath(QDir.rootPath())
 
         self.treeView.setModel(filesystem_model)
-
-    def closeEvent(self, event):
-        if self.mainwindow is not None and self.isVisible():
-            self.hide()
-            self.mainwindow.show()

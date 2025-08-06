@@ -6,6 +6,7 @@ from PySide6.QtWidgets import QStyle
 
 from resources.forms.todo import *
 from PySide6.QtCore import QAbstractListModel, Qt, QEvent
+from dax import DWidget
 
 
 class TodoModel(QAbstractListModel):
@@ -34,15 +35,14 @@ class TodoModel(QAbstractListModel):
         return None
 
 
-class Todo(QWidget, Ui_Form):
+class Todo(DWidget, Ui_Form):
     def __init__(self, mainwindow=None):
-        super().__init__()
+        super().__init__(mainwindow)
         self.setupUi(self)
         self.model = TodoModel()
         self.data_file = os.path.join(os.path.dirname(__file__), 'data.json')
         self.load()
         self.list_view.setModel(self.model)
-        self.mainwindow = mainwindow
 
         self.add_btn.clicked.connect(self.add)
         self.delete_btn.clicked.connect(self.delete)
@@ -98,12 +98,6 @@ class Todo(QWidget, Ui_Form):
     def save(self):
         with open(self.data_file, 'w') as f:
             json.dump(self.model.todo_list, f)
-
-    def closeEvent(self, event, /):
-        if self.isVisible():
-            self.mainwindow.show()
-            event.accept()
-        super().closeEvent(event)
 
 
 if __name__ == '__main__':

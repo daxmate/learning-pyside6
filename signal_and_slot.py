@@ -2,12 +2,12 @@ import sys
 
 from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QHBoxLayout
 from PySide6.QtCore import Slot, Signal
+from dax import DWidget
 
 
-class SignalAndSlot(QWidget):
+class SignalAndSlot(DWidget):
     def __init__(self, mainwindow=None):
-        super().__init__()
-        self.mainwindow = mainwindow
+        super().__init__(mainwindow)
         self.label = QLabel("初始文本", self)
         self.button = QPushButton("点击我……", self)
         self.layout = QHBoxLayout(self)
@@ -30,11 +30,6 @@ class SignalAndSlot(QWidget):
     @Slot()
     def update_label(self):
         self.label.setText("文本已更新")
-
-    def closeEvent(self, event):
-        if not self.mainwindow.isVisible():
-            self.mainwindow.show()
-        event.accept()
 
 
 if __name__ == '__main__':

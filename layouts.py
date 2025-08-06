@@ -10,20 +10,15 @@ from PySide6.QtWidgets import (QWidget,
                                QCheckBox,
                                QApplication, QSizePolicy,
                                )
-from PySide6.QtGui import (
-    QPixmap, Qt
-)
-
-import qlementine_icons_16_software_rc
+from dax import DWidget
 
 from layout import Ui_LayoutWindow
 import sys
 
 
-class Layouts(QWidget, Ui_LayoutWindow):
+class Layouts(DWidget, Ui_LayoutWindow):
     def __init__(self, mainwindow=None):
-        super().__init__()
-        self.mainwindow = mainwindow
+        super().__init__(mainwindow)
         self.setupUi(self)
         self.buttons = self.get_buttons()
 
@@ -88,12 +83,6 @@ class Layouts(QWidget, Ui_LayoutWindow):
         combo.setCurrentIndex(1)
         form_layout.addRow("性别:", combo)
         form_layout.addRow(QCheckBox("记住登录信息"))
-
-    def closeEvent(self, event):
-        """关闭本窗口时显示主窗口"""
-        if self.mainwindow and not self.mainwindow.isVisible():
-            self.mainwindow.show()
-        event.accept()
 
 
 if __name__ == '__main__':

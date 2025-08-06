@@ -1,11 +1,11 @@
 from PySide6.QtWidgets import QApplication, QWidget
+from dax import DWidget
 import sys
 
 
-class HelloWorld(QWidget):
-    def __init__(self, mainwindow):
-        super().__init__()
-        self.mainwindow = mainwindow
+class HelloWorld(DWidget):
+    def __init__(self, mainwindow=None):
+        super().__init__(mainwindow)
         self.resize(600, 300)
         self.setWindowTitle("Hello World")
         self.center()
@@ -15,11 +15,6 @@ class HelloWorld(QWidget):
         frame_geometry = self.frameGeometry()
         frame_geometry.moveCenter(screen_center)
         self.geometry()
-
-    def closeEvent(self, event):
-        if not self.mainwindow.isVisible():
-            self.mainwindow.show()
-        event.accept()
 
 
 if __name__ == '__main__':
