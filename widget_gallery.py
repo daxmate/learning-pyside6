@@ -45,6 +45,8 @@ class WidgetGallery(DWidget, Ui_Form):
 
     def setup_tab_widget(self):
         filesystem_model = QFileSystemModel()
-        filesystem_model.setRootPath(QDir.rootPath())
+        home_path = QDir().homePath()
+        filesystem_model.setRootPath(home_path)
 
         self.treeView.setModel(filesystem_model)
+        self.treeView.setRootIndex(filesystem_model.index(home_path))
