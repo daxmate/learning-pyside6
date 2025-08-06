@@ -50,3 +50,9 @@ class WidgetGallery(DWidget, Ui_Form):
 
         self.treeView.setModel(filesystem_model)
         self.treeView.setRootIndex(filesystem_model.index(home_path))
+        self.treeView.doubleClicked.connect(self.toggle_hidden)
+
+    def toggle_hidden(self):
+        model = self.treeView.model()
+        filters = model.filter()
+        model.setFilter(filters ^ QDir.Filter.Hidden)
