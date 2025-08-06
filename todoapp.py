@@ -26,11 +26,10 @@ class TodoModel(QAbstractListModel):
 
         if role == Qt.ItemDataRole.DecorationRole:
             status, text = self.todo_list[index.row()]
-            style = QApplication.style()
             if status:
-                return QIcon(QPixmap("resources/icons/shape/check-tick.svg"))
+                return QIcon(":shape/check-tick.svg")
             else:
-                return QIcon(QPixmap("resources/icons/action/close.svg"))
+                return QIcon(":action/close.svg")
 
         return None
 
