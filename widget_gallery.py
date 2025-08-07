@@ -1,5 +1,6 @@
 from PySide6.QtCore import QDir
-from PySide6.QtWidgets import QStyleFactory, QTabWidget, QFileSystemModel
+from PySide6.QtGui import QAction, QIcon
+from PySide6.QtWidgets import QStyleFactory, QTabWidget, QFileSystemModel, QTreeView
 from PySide6.QtWidgets import QWidget, QApplication
 
 from resources.forms.widget_gallery import Ui_Form
@@ -20,7 +21,7 @@ class WidgetGallery(DWidget, Ui_Form):
         self.option_tool_button.setMenu(tool_menu)
 
         self.add_style()
-        self.setup_tab_widget()
+        self.setup_tree_view()
 
     def add_style(self):
         """
@@ -44,25 +45,18 @@ class WidgetGallery(DWidget, Ui_Form):
         current_style = self.style_comb.currentText()
         QApplication.setStyle(current_style)
 
-    def setup_tab_widget(self):
-        # setup filesystem treeview
-        filesystem_model = QFileSystemModel()
-        home_path = QDir().homePath()
-        filesystem_model.setRootPath(home_path)
-
-        self.treeView.setModel(filesystem_model)
-        self.treeView.hideColumn(2)
-        self.treeView.setRootIndex(filesystem_model.index(home_path))
-        self.toggle_hidden_cb.toggled.connect(self.toggle_hidden)
-        self.treeView.doubleClicked.connect(self.open_file)
-
     def toggle_hidden(self):
         model = self.treeView.model()
         filters = model.filter()
         model.setFilter(filters ^ QDir.Filter.Hidden)
 
-    def open_file(self, index):
-        model = self.treeView.model()
-        file_path = model.filePath(index)
-        if os.path.isfile(file_path):
-            os.system(f'open {file_path}')
+    def setup_tree_view(self):
+        self.toggle_hidden_cb.toggled.connect(self.toggle_hidden)
+        # self.treeView.doubleClicked.connect(self.on_treeview_double_clicked)
+
+    # 这个地方没有搞定
+    def on_treeview_double_clicked(self, index):
+        if self.treeView.isExpanded(index):
+            self.treeView.collapse(index)
+        else:
+            self.treeView.expanded(index)

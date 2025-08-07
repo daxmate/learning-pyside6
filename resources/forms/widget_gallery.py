@@ -21,8 +21,10 @@ from PySide6.QtWidgets import (QAbstractButton, QApplication, QButtonGroup, QChe
     QHBoxLayout, QHeaderView, QKeySequenceEdit, QLabel,
     QLineEdit, QListView, QPushButton, QRadioButton,
     QScrollBar, QSizePolicy, QSlider, QSpacerItem,
-    QSpinBox, QTabWidget, QToolButton, QTreeView,
-    QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
+    QSpinBox, QTabWidget, QToolButton, QTreeWidget,
+    QTreeWidgetItem, QVBoxLayout, QWidget)
+
+from filesystem_treeview import FileSystemTreeView
 import qlementine_icons_16_navigation_rc
 import qlementine_icons_16_shopping_rc
 import qlementine_icons_16_software_rc
@@ -68,7 +70,7 @@ class Ui_Form(object):
         self.tab.setObjectName(u"tab")
         self.verticalLayout_3 = QVBoxLayout(self.tab)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.treeView = QTreeView(self.tab)
+        self.treeView = FileSystemTreeView(self.tab)
         self.treeView.setObjectName(u"treeView")
 
         self.verticalLayout_3.addWidget(self.treeView)
