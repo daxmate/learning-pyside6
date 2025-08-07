@@ -19,10 +19,10 @@ from PySide6.QtWidgets import (QAbstractButton, QApplication, QButtonGroup, QChe
     QComboBox, QCommandLinkButton, QDateTimeEdit, QDial,
     QDialogButtonBox, QFontComboBox, QGridLayout, QGroupBox,
     QHBoxLayout, QHeaderView, QKeySequenceEdit, QLabel,
-    QLineEdit, QListView, QPushButton, QRadioButton,
-    QScrollBar, QSizePolicy, QSlider, QSpacerItem,
-    QSpinBox, QTabWidget, QToolButton, QTreeWidget,
-    QTreeWidgetItem, QVBoxLayout, QWidget)
+    QLineEdit, QListView, QListWidget, QListWidgetItem,
+    QPushButton, QRadioButton, QScrollBar, QSizePolicy,
+    QSlider, QSpacerItem, QSpinBox, QTabWidget,
+    QToolButton, QVBoxLayout, QWidget)
 
 from filesystem_treeview import FileSystemTreeView
 import qlementine_icons_16_navigation_rc
@@ -85,13 +85,10 @@ class Ui_Form(object):
         self.tab_2.setObjectName(u"tab_2")
         self.horizontalLayout_6 = QHBoxLayout(self.tab_2)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.treeWidget = QTreeWidget(self.tab_2)
-        __qtreewidgetitem = QTreeWidgetItem()
-        __qtreewidgetitem.setText(0, u"1");
-        self.treeWidget.setHeaderItem(__qtreewidgetitem)
-        self.treeWidget.setObjectName(u"treeWidget")
+        self.listWidget = QListWidget(self.tab_2)
+        self.listWidget.setObjectName(u"listWidget")
 
-        self.horizontalLayout_6.addWidget(self.treeWidget)
+        self.horizontalLayout_6.addWidget(self.listWidget)
 
         self.tab_widget.addTab(self.tab_2, "")
         self.tab_3 = QWidget()
@@ -316,7 +313,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
 
-        self.tab_widget.setCurrentIndex(0)
+        self.tab_widget.setCurrentIndex(1)
         self.pushButton.setDefault(True)
 
 
