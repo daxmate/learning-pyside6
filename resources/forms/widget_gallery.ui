@@ -40,8 +40,8 @@
     <rect>
      <x>10</x>
      <y>340</y>
-     <width>511</width>
-     <height>551</height>
+     <width>471</width>
+     <height>521</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -51,9 +51,16 @@
     <attribute name="title">
      <string>Tree View</string>
     </attribute>
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <widget class="QTreeView" name="treeView"/>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="toggle_hidden_cb">
+       <property name="text">
+        <string>显示隐藏文件</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -424,11 +431,11 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_2">
    <property name="exclusive">
     <bool>false</bool>
    </property>
   </buttongroup>
+  <buttongroup name="buttonGroup"/>
  </buttongroups>
 </ui>

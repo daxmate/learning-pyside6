@@ -5,6 +5,7 @@ from PySide6.QtWidgets import QWidget, QApplication
 from resources.forms.widget_gallery import Ui_Form
 from PySide6.QtWidgets import QMenu
 from dax import DWidget
+import os
 
 
 class WidgetGallery(DWidget, Ui_Form):
@@ -44,15 +45,24 @@ class WidgetGallery(DWidget, Ui_Form):
         QApplication.setStyle(current_style)
 
     def setup_tab_widget(self):
+        # setup filesystem treeview
         filesystem_model = QFileSystemModel()
         home_path = QDir().homePath()
         filesystem_model.setRootPath(home_path)
 
         self.treeView.setModel(filesystem_model)
+        self.treeView.hideColumn(2)
         self.treeView.setRootIndex(filesystem_model.index(home_path))
-        self.treeView.doubleClicked.connect(self.toggle_hidden)
+        self.toggle_hidden_cb.toggled.connect(self.toggle_hidden)
+        self.treeView.doubleClicked.connect(self.open_file)
 
     def toggle_hidden(self):
         model = self.treeView.model()
         filters = model.filter()
         model.setFilter(filters ^ QDir.Filter.Hidden)
+
+    def open_file(self, index):
+        model = self.treeView.model()
+        file_path = model.filePath(index)
+        if os.path.isfile(file_path):
+            os.system(f'open {file_path}')

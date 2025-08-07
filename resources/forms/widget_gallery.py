@@ -44,7 +44,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(606, 635)
+        Form.resize(802, 906)
         self.layoutWidget = QWidget(Form)
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.layoutWidget.setGeometry(QRect(10, 10, 135, 32))
@@ -63,15 +63,20 @@ class Ui_Form(object):
 
         self.tab_widget = QTabWidget(Form)
         self.tab_widget.setObjectName(u"tab_widget")
-        self.tab_widget.setGeometry(QRect(10, 340, 302, 255))
+        self.tab_widget.setGeometry(QRect(10, 340, 471, 521))
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
-        self.horizontalLayout_5 = QHBoxLayout(self.tab)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.verticalLayout_3 = QVBoxLayout(self.tab)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.treeView = QTreeView(self.tab)
         self.treeView.setObjectName(u"treeView")
 
-        self.horizontalLayout_5.addWidget(self.treeView)
+        self.verticalLayout_3.addWidget(self.treeView)
+
+        self.toggle_hidden_cb = QCheckBox(self.tab)
+        self.toggle_hidden_cb.setObjectName(u"toggle_hidden_cb")
+
+        self.verticalLayout_3.addWidget(self.toggle_hidden_cb)
 
         self.tab_widget.addTab(self.tab, "")
         self.tab_2 = QWidget()
@@ -319,6 +324,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"\u5e38\u7528\u63a7\u4ef6", None))
         self.style_label.setText(QCoreApplication.translate("Form", u"\u6837\u5f0f", None))
+        self.toggle_hidden_cb.setText(QCoreApplication.translate("Form", u"\u663e\u793a\u9690\u85cf\u6587\u4ef6", None))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab), QCoreApplication.translate("Form", u"Tree View", None))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab_2), QCoreApplication.translate("Form", u"Table", None))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab_3), QCoreApplication.translate("Form", u"List", None))
