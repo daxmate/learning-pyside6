@@ -3,33 +3,28 @@ import sys
 from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QHBoxLayout
 from PySide6.QtCore import Slot, Signal
 from dax import DWidget
+from src.forms.signal_and_slot import Ui_widget
 
 
-class SignalAndSlot(DWidget):
+class SignalAndSlot(DWidget, Ui_widget):
     def __init__(self, mainwindow=None):
         super().__init__(mainwindow)
-        self.label = QLabel("初始文本", self)
-        self.button = QPushButton("点击我……", self)
-        self.layout = QHBoxLayout(self)
-        self.init_ui()
+        self.setupUi(self)
+        self.step = 100
+        for button in [self.up_btn, self.down_btn, self.left_btn, self.right_btn]:
+            button.clicked.connect(self.move_window)
 
-    def init_ui(self):
-        """初始化UI"""
-        self.setWindowTitle("信号与槽")
-        self.resize(800, 600)
-        center = self.screen().availableGeometry().center()
-        self.geometry().moveCenter(center)
-
-        # 添加控件到布局
-        self.layout.addWidget(self.button)
-        self.layout.addWidget(self.label)
-
-        # 链接信号与槽
-        self.button.clicked.connect(self.update_label)
-
-    @Slot()
-    def update_label(self):
-        self.label.setText("文本已更新")
+    def move_window(self):
+        screen = self.screen().availableGeometry()
+        frame = self.frameGeometry()
+        if self.sender() == self.up_btn:
+            self.move(self.x(), max(self.y() - self.step, 0))
+        elif self.sender() == self.down_btn:
+            self.move(self.x(), min(self.y() + self.step, screen.bottom() - frame.height()))
+        elif self.sender() == self.left_btn:
+            self.move(max(0, self.x() - self.step), self.y())
+        elif self.sender() == self.right_btn:
+            self.move(min(screen.right() - frame.width(), self.x() + self.step), self.y())
 
 
 if __name__ == '__main__':
