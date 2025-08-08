@@ -1,12 +1,10 @@
 from PySide6.QtCore import QDir
-from PySide6.QtGui import QAction, QIcon
-from PySide6.QtWidgets import QStyleFactory, QTabWidget, QFileSystemModel, QTreeView
-from PySide6.QtWidgets import QWidget, QApplication
+from PySide6.QtWidgets import QStyleFactory
+from PySide6.QtWidgets import QApplication
 
-from resources.forms.widget_gallery import Ui_Form
+from src.forms.widget_gallery import Ui_Form
 from PySide6.QtWidgets import QMenu
 from dax import DWidget
-import os
 
 
 class WidgetGallery(DWidget, Ui_Form):

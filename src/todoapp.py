@@ -2,9 +2,7 @@ import json
 import os.path
 import sys
 
-from PySide6.QtWidgets import QStyle
-
-from resources.forms.todo import *
+from src.forms.todo import *
 from PySide6.QtCore import QAbstractListModel, Qt, QEvent
 from dax import DWidget
 
