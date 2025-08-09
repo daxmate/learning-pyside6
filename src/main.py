@@ -8,6 +8,7 @@ from PySide6.QtWidgets import (QApplication,
 from helloworld import HelloWorld
 from layouts import Layouts
 from signal_and_slot import SignalAndSlot
+from src.guess_number import GuessNumber
 from todoapp import Todo
 from widget_gallery import WidgetGallery
 from mainwindow import Ui_MainWindow
@@ -40,6 +41,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             ("Hello World", HelloWorld),
             ("布局", Layouts),
             ("信号与槽", SignalAndSlot),
+            ("猜数字", GuessNumber),
             ("待办事项小应用", Todo),
             ("常用控件库", WidgetGallery),
         ]
