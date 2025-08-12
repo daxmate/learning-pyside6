@@ -18,6 +18,16 @@
     <item>
      <widget class="QListView" name="listView"/>
     </item>
+    <item>
+     <widget class="CustomLineEdit" name="lineEdit">
+      <property name="font">
+       <font>
+        <family>JetBrainsMonoNL Nerd Font Mono</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -32,6 +42,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CustomLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>customlineedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

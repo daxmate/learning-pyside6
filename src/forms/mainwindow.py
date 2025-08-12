@@ -18,6 +18,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QListView, QMainWindow, QMenuBar,
     QSizePolicy, QStatusBar, QVBoxLayout, QWidget)
 
+from customlineedit import CustomLineEdit
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -31,6 +33,15 @@ class Ui_MainWindow(object):
         self.listView.setObjectName(u"listView")
 
         self.verticalLayout.addWidget(self.listView)
+
+        self.lineEdit = CustomLineEdit(self.centralwidget)
+        self.lineEdit.setObjectName(u"lineEdit")
+        font = QFont()
+        font.setFamilies([u"JetBrainsMonoNL Nerd Font Mono"])
+        font.setPointSize(14)
+        self.lineEdit.setFont(font)
+
+        self.verticalLayout.addWidget(self.lineEdit)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
