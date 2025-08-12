@@ -25,17 +25,39 @@ class GuessNumber(DWidget, Ui_guess):
 
     def confirm(self):
         guess = int(self.guess_le.text())
+
         if guess == self.target:
-            self.result_label.setText("你猜对了")
+            self.result_label.setText(f"🎯 完美命中！答案就是 {self.target}")
+            self.result_label.setStyleSheet("color: #4CAF50; font-size: 16px;")
+            self.confirm_btn.setEnabled(False)  # 猜对后禁用确认按钮
         elif guess > self.target:
-            self.result_label.setText("大")
+            diff = guess - self.target
+            if diff > 30:
+                msg = "太大了"
+            elif diff > 15:
+                msg = "还是大了"
+            else:
+                msg = "接近了，但还大一点点"
+            self.result_label.setText(msg)
+            self.result_label.setStyleSheet("color: #2196F3;")
         else:
-            self.result_label.setText("小")
+            diff = self.target - guess
+            if diff > 30:
+                msg = "太小了"
+            elif diff > 15:
+                msg = "还是小了"
+            else:
+                msg = "接近了，但还小一点点"
+            self.result_label.setText(msg)
+            self.result_label.setStyleSheet("color: #F44336;")
+
+        # 清空输入框，准备下一次猜测
+        self.guess_le.clear()
 
     def restart(self):
         self.result_label.setText("开始吧")
         self.target = randrange(1, 101)
-        self.guess_le.setText(str(50))
+        self.guess_le.clear()
 
     def num_input(self, num):
         text = self.guess_le.text() + str(num)

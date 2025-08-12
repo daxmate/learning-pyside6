@@ -91,7 +91,10 @@ class Ui_guess(object):
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.result_label.sizePolicy().hasHeightForWidth())
         self.result_label.setSizePolicy(sizePolicy3)
-        self.result_label.setFont(font)
+        font2 = QFont()
+        font2.setFamilies([u".AppleSystemUIFont"])
+        font2.setPointSize(32)
+        self.result_label.setFont(font2)
         self.result_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout.addWidget(self.result_label)
@@ -105,11 +108,11 @@ class Ui_guess(object):
         self.num8_btn.setObjectName(u"num8_btn")
         sizePolicy2.setHeightForWidth(self.num8_btn.sizePolicy().hasHeightForWidth())
         self.num8_btn.setSizePolicy(sizePolicy2)
-        font2 = QFont()
-        font2.setFamilies([u"JetBrainsMonoNL Nerd Font Mono"])
-        font2.setPointSize(32)
-        font2.setBold(True)
-        self.num8_btn.setFont(font2)
+        font3 = QFont()
+        font3.setFamilies([u"JetBrainsMonoNL Nerd Font Mono"])
+        font3.setPointSize(32)
+        font3.setBold(True)
+        self.num8_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num8_btn, 3, 1, 1, 1)
 
@@ -117,7 +120,7 @@ class Ui_guess(object):
         self.num5_btn.setObjectName(u"num5_btn")
         sizePolicy2.setHeightForWidth(self.num5_btn.sizePolicy().hasHeightForWidth())
         self.num5_btn.setSizePolicy(sizePolicy2)
-        self.num5_btn.setFont(font2)
+        self.num5_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num5_btn, 1, 1, 1, 1)
 
@@ -125,7 +128,7 @@ class Ui_guess(object):
         self.num0_btn.setObjectName(u"num0_btn")
         sizePolicy2.setHeightForWidth(self.num0_btn.sizePolicy().hasHeightForWidth())
         self.num0_btn.setSizePolicy(sizePolicy2)
-        self.num0_btn.setFont(font2)
+        self.num0_btn.setFont(font3)
         self.num0_btn.setStyleSheet(u"")
 
         self.gridLayout.addWidget(self.num0_btn, 4, 0, 1, 1)
@@ -134,7 +137,7 @@ class Ui_guess(object):
         self.num4_btn.setObjectName(u"num4_btn")
         sizePolicy2.setHeightForWidth(self.num4_btn.sizePolicy().hasHeightForWidth())
         self.num4_btn.setSizePolicy(sizePolicy2)
-        self.num4_btn.setFont(font2)
+        self.num4_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num4_btn, 1, 0, 1, 1)
 
@@ -142,7 +145,7 @@ class Ui_guess(object):
         self.num3_btn.setObjectName(u"num3_btn")
         sizePolicy2.setHeightForWidth(self.num3_btn.sizePolicy().hasHeightForWidth())
         self.num3_btn.setSizePolicy(sizePolicy2)
-        self.num3_btn.setFont(font2)
+        self.num3_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num3_btn, 0, 2, 1, 1)
 
@@ -150,7 +153,7 @@ class Ui_guess(object):
         self.num7_btn.setObjectName(u"num7_btn")
         sizePolicy2.setHeightForWidth(self.num7_btn.sizePolicy().hasHeightForWidth())
         self.num7_btn.setSizePolicy(sizePolicy2)
-        self.num7_btn.setFont(font2)
+        self.num7_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num7_btn, 3, 0, 1, 1)
 
@@ -158,7 +161,7 @@ class Ui_guess(object):
         self.num1_btn.setObjectName(u"num1_btn")
         sizePolicy2.setHeightForWidth(self.num1_btn.sizePolicy().hasHeightForWidth())
         self.num1_btn.setSizePolicy(sizePolicy2)
-        self.num1_btn.setFont(font2)
+        self.num1_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num1_btn, 0, 0, 1, 1)
 
@@ -166,7 +169,7 @@ class Ui_guess(object):
         self.num2_btn.setObjectName(u"num2_btn")
         sizePolicy2.setHeightForWidth(self.num2_btn.sizePolicy().hasHeightForWidth())
         self.num2_btn.setSizePolicy(sizePolicy2)
-        self.num2_btn.setFont(font2)
+        self.num2_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num2_btn, 0, 1, 1, 1)
 
@@ -174,7 +177,7 @@ class Ui_guess(object):
         self.num6_btn.setObjectName(u"num6_btn")
         sizePolicy2.setHeightForWidth(self.num6_btn.sizePolicy().hasHeightForWidth())
         self.num6_btn.setSizePolicy(sizePolicy2)
-        self.num6_btn.setFont(font2)
+        self.num6_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num6_btn, 1, 2, 1, 1)
 
@@ -182,7 +185,7 @@ class Ui_guess(object):
         self.num9_btn.setObjectName(u"num9_btn")
         sizePolicy2.setHeightForWidth(self.num9_btn.sizePolicy().hasHeightForWidth())
         self.num9_btn.setSizePolicy(sizePolicy2)
-        self.num9_btn.setFont(font2)
+        self.num9_btn.setFont(font3)
 
         self.gridLayout.addWidget(self.num9_btn, 3, 2, 1, 1)
 
@@ -190,11 +193,11 @@ class Ui_guess(object):
         self.confirm_btn.setObjectName(u"confirm_btn")
         sizePolicy2.setHeightForWidth(self.confirm_btn.sizePolicy().hasHeightForWidth())
         self.confirm_btn.setSizePolicy(sizePolicy2)
-        font3 = QFont()
-        font3.setFamilies([u"JetBrainsMonoNL Nerd Font Mono"])
-        font3.setPointSize(8)
-        font3.setBold(True)
-        self.confirm_btn.setFont(font3)
+        font4 = QFont()
+        font4.setFamilies([u"JetBrainsMonoNL Nerd Font Mono"])
+        font4.setPointSize(8)
+        font4.setBold(True)
+        self.confirm_btn.setFont(font4)
         icon = QIcon()
         icon.addFile(u":/navigation/key-return-noframe.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.confirm_btn.setIcon(icon)
@@ -205,7 +208,7 @@ class Ui_guess(object):
         self.delete_btn.setObjectName(u"delete_btn")
         sizePolicy2.setHeightForWidth(self.delete_btn.sizePolicy().hasHeightForWidth())
         self.delete_btn.setSizePolicy(sizePolicy2)
-        self.delete_btn.setFont(font3)
+        self.delete_btn.setFont(font4)
         icon1 = QIcon()
         icon1.addFile(u":/action/erase.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.delete_btn.setIcon(icon1)
@@ -242,7 +245,7 @@ class Ui_guess(object):
         guess.setWindowTitle(QCoreApplication.translate("guess", u"\u731c\u6570\u5b57", None))
         self.question_label.setText(QCoreApplication.translate("guess", u"\u6211\u6709\u4e00\u4e2a1\u5230100\u7684\u6574\u6570\uff0c\n"
 "\u8bf7\u731c\u731c\u662f\u591a\u5c11\uff1f", None))
-        self.guess_le.setText(QCoreApplication.translate("guess", u"50", None))
+        self.guess_le.setText("")
         self.result_label.setText("")
         self.num8_btn.setText(QCoreApplication.translate("guess", u"8", None))
         self.num5_btn.setText(QCoreApplication.translate("guess", u"5", None))
