@@ -51,9 +51,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         for index, (title, _) in enumerate(self.lessons):
             self.model.lessons.append(f'第{index + 1}课. {title}')
             self.model.layoutChanged.emit()
-        self.listView.doubleClicked.connect(self.on_list_view_double_clicked)
+        self.listView.clicked.connect(self.on_list_view_clicked)
 
-    def on_list_view_double_clicked(self, index):
+    def on_list_view_clicked(self, index):
         self.widget = self.lessons[index.row()][1](self)
         self.widget.show()
         self.hide()
