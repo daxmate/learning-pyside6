@@ -1,3 +1,4 @@
+import os
 import sys
 
 from PySide6.QtCore import Qt, QAbstractListModel
@@ -62,26 +63,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
-    window.setStyleSheet("""
-            QListView {
-                border: 1px solid #ccc;
-                font-size: 16px;
-            }
-
-            QListView::item {
-                padding: 8px;
-                border-bottom: 1px solid #eee;
-            }
-
-            QListView::item:hover {
-                background-color: #e0f7fa;
-                color: #00796b;
-            }
-
-            QListView::item:selected {
-                background-color: #b2ebf2;
-                color: #004d40;
-            }
-        """)
+    with open("../qss/mainwindow.qss", "r") as file:
+        style = file.read()
+        window.setStyleSheet(style)
     window.show()
     sys.exit(app.exec())

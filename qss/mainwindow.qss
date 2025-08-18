@@ -1,0 +1,23 @@
+/* 主界面设置为浅灰底色 */
+QListView {
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* 数据区域显示接近白色 */
+QListView::item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 当鼠标悬浮在数据项之上时，数据项的底色变成浅绿色， 文字变成深绿色 */
+QListView::item:hover {
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+/* 设置选中状态下的底色与文字颜色 */
+QListView::item:selected {
+    background-color: #b2ebf2;
+    color: #004d40;
+}
